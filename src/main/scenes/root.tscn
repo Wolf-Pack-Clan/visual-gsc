@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://main/scripts/background.gd" type="Script" id=1]
+[ext_resource path="res://main/scripts/maincontainer.gd" type="Script" id=2]
+[ext_resource path="res://main/scripts/toolbar.gd" type="Script" id=3]
+[ext_resource path="res://main/scripts/status.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.0374737, 0.123374, 0.162598, 1, 0.123813, 0.0905457, 0.167969, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+fill_to = Vector2( 0.879167, 0.421875 )
+
+[node name="root" type="Node2D"]
+
+[node name="background" type="Sprite" parent="."]
+texture = SubResource( 2 )
+centered = false
+script = ExtResource( 1 )
+
+[node name="maincontainer" type="GraphEdit" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+show_zoom_label = true
+script = ExtResource( 2 )
+
+[node name="toolbar" type="Panel" parent="."]
+margin_right = 40.0
+margin_bottom = 30.0
+script = ExtResource( 3 )
+
+[node name="FileMenu" type="MenuButton" parent="toolbar"]
+margin_right = 35.0
+margin_bottom = 40.0
+text = "File"
+
+[node name="HelpMenu" type="MenuButton" parent="toolbar"]
+margin_left = 39.0
+margin_right = 81.0
+margin_bottom = 40.0
+text = "Help"
+
+[node name="status" type="Label" parent="."]
+margin_top = 100.0
+margin_right = 40.0
+margin_bottom = 114.0
+script = ExtResource( 4 )
